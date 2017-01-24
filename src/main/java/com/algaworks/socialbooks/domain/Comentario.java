@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @Entity
 public class Comentario {
@@ -21,8 +23,10 @@ public class Comentario {
 	
 	public String texto;
 	
+	@JsonInclude(Include.NON_NULL)
 	public String usuario;
 	
+	@JsonInclude(Include.NON_NULL)
 	public Date data;
 
 	@ManyToOne(fetch = FetchType.LAZY)
